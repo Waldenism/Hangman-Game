@@ -1,0 +1,14 @@
+body {
+	color:white;
+	background-color: black;
+}
+
+h1 ,h2 {
+	font-family: 'Audiowide', cursive;
+	display: flex;
+	justify-content: center;
+}
+
+#content {
+	margin:0 auto;
+}

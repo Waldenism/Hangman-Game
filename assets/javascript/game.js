@@ -49,8 +49,17 @@ var usedLets = [];
 console.log(usedLets);
 
 //stores updated game word
-var dynamicWord;
+var dynamicWord = initialWordSet(randWord);
+display(dynamicWord);
 console.log(dynamicWord);
+
+var wins = document.getElementById("wins");
+var winCounter = 0;
+wins.textContent = winCounter;
+
+var lives = document.getElementById("lives");
+var lifeCounter = 6;
+lives.textContent = lifeCounter;
 
 ////////////////////////////////////////////////////////////////////////////////
 //end variables
@@ -67,32 +76,34 @@ console.log(dynamicWord);
 //displays word
 function display(word) {
 
+	//update word area
+	consoleWord.textContent = word;	
 }
 
 //returns a string of word.length _ 's 
-/*function initialWordSet(word) {
+function initialWordSet(word) {
 	var blanks = ""
 	for (var i = 0; i < word.length; i++) {
 		blanks+="_";
 	}
 	return blanks;
-}*/
+}
 
 //compares userInput to each index of currentWord string, creates new string
 function wordSetter(currentWord, letter) {
-	var newString = "";
+	var newString = dynamicWord;
 
 	for(var i = 0; i < currentWord.length; i++) {
 
 		var place = currentWord.charAt([i]);
 
 		if(place === letter) {
-			newString += currentWord[i];
-		} else {
-			newString += "_";
-		}
+			console.log("dynamicWord: " + dynamicWord);
+			newString = newString.replaceAt(i, letter);
+			console.log("newString: " + newString);
+		} 
 	}
-	return newString;	
+	return newString;
 }
 
 //randomly selects a videogame console from vgSystems array
@@ -114,6 +125,10 @@ function checker(currentWord, letter){
 
 //stores the letters that are guessed that are not in the word
 function storedInputs(letters) {
+
+	if (usedLets.indexOf(letters) > -1) {
+		return false;
+	}
 	usedLets.push(letters);
     guessed.textContent = usedLets;
 }
@@ -121,6 +136,16 @@ function storedInputs(letters) {
 //replace character in a string at a given index
 String.prototype.replaceAt=function(index, replacement) {
     return this.substr(0, index) + replacement+ this.substr(index + replacement.length);
+}
+
+function completeCheck() {
+	if (dynamicWord === randWord) {
+		winCounter++;
+		wins.textContent = winCounter;
+		return true;
+	} else {
+		return false;
+	}
 }
 
 //captures user input
@@ -136,12 +161,23 @@ document.onkeyup = function(event) {
     if (boolCheck === true) { 
 
     	dynamicWord = wordSetter(randWord, userInput);
-    	consoleWord.textContent = dynamicWord;
 
     } else {
     	storedInputs(userInput);
+    	lifeCounter--;
+    	lives.textContent = lifeCounter;
     }
+    display(dynamicWord);
 
+    if (completeCheck()){
+    	randWord = rand(vgSystems);
+    	dynamicWord = initialWordSet(randWord);
+    	usedLets = [];
+    	guessed.textContent = "";
+    	lifeCounter = 6;
+    	lives.textContent = lifeCounter;
+    	display(dynamicWord);
+    }
 };
 
 
