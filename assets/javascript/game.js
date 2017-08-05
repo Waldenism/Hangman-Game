@@ -57,6 +57,10 @@ var wins = document.getElementById("wins");
 var winCounter = 0;
 wins.textContent = winCounter;
 
+var losses = document.getElementById("losses")
+var lossCounter = 0;
+losses.textContent = lossCounter;
+
 var lives = document.getElementById("lives");
 var lifeCounter = 6;
 lives.textContent = lifeCounter;
@@ -155,6 +159,12 @@ document.onkeyup = function(event) {
     var userInput = String.fromCharCode(event.keyCode).toLowerCase();
     console.log(userInput);
 
+    //check if key has already been pressed
+    if (usedLets.indexOf(userInput) > -1) {
+    	return false;
+    }
+
+
     //checks if the letter is in the word
     var boolCheck = checker(randWord, userInput);
 
@@ -166,9 +176,23 @@ document.onkeyup = function(event) {
     	storedInputs(userInput);
     	lifeCounter--;
     	lives.textContent = lifeCounter;
+    	if (lifeCounter === 0) {
+    		lossCounter++;
+    		losses.textContent = lossCounter;
+
+    		randWord = rand(vgSystems);
+    		dynamicWord = initialWordSet(randWord);
+    		usedLets = [];
+    		guessed.textContent = "";
+    		lifeCounter = 6;
+    		lives.textContent = lifeCounter;
+    		display(dynamicWord);
+    	}
+
     }
     display(dynamicWord);
 
+    //checks if word is completed, and generates a new word
     if (completeCheck()){
     	randWord = rand(vgSystems);
     	dynamicWord = initialWordSet(randWord);

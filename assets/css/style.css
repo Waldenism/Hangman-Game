@@ -12,3 +12,11 @@ h1 ,h2 {
 #content {
 	margin:0 auto;
 }
+
+#guessedLets {
+	letter-spacing: 0.5em;
+}
+
+#content {
+	font-size: 28px;
+}
