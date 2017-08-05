@@ -36,7 +36,6 @@ var vgSystems = [
 
 //assigns random word from vgSystems array
 randWord = rand(vgSystems);
-console.log(randWord);
 
 //grabs html div
 var consoleWord = document.getElementById("gameWord");
@@ -46,32 +45,28 @@ var guessed = document.getElementById("guessedLets");
 
 //stores incorrect letters
 var usedLets = [];
-console.log(usedLets);
 
 //stores updated game word
 var dynamicWord = initialWordSet(randWord);
 display(dynamicWord);
-console.log(dynamicWord);
 
+//stores and displays wins
 var wins = document.getElementById("wins");
 var winCounter = 0;
 wins.textContent = winCounter;
 
+//stores and displays losses
 var losses = document.getElementById("losses")
 var lossCounter = 0;
 losses.textContent = lossCounter;
 
+//stores and displays lives
 var lives = document.getElementById("lives");
 var lifeCounter = 6;
 lives.textContent = lifeCounter;
 
 ////////////////////////////////////////////////////////////////////////////////
 //end variables
-
-
-
-
-
 
 
 //functions
@@ -142,6 +137,7 @@ String.prototype.replaceAt=function(index, replacement) {
     return this.substr(0, index) + replacement+ this.substr(index + replacement.length);
 }
 
+//sees if the player has won
 function completeCheck() {
 	if (dynamicWord === randWord) {
 		winCounter++;
@@ -151,8 +147,12 @@ function completeCheck() {
 		return false;
 	}
 }
+////////////////////////////////////////////////////////////////////
+//end functions
+
 
 //captures user input
+//executes most of the game code
 document.onkeyup = function(event) {
 
 	// Determine which key was pressed, make it lowercase, and set it to the userInput variable.
