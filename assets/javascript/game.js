@@ -138,6 +138,7 @@ var lives = document.getElementById("lives");
 var lifeCounter = 6;
 lives.textContent = lifeCounter;
 
+
 ////////////////////////////////////////////////////////////////////////////////
 //end variables
 
@@ -248,41 +249,43 @@ document.onkeyup = function(event) {
     	storedInputs(userInput);
     	lifeCounter--;
     	lives.textContent = lifeCounter;
-    	if (lifeCounter === 5) {man.innerHTML = "<img src ='assets/images/hangmanimg/init.png'>";}
-		if (lifeCounter === 4) {man.innerHTML = "<img src ='assets/images/hangmanimg/bod.png'>";}
-		if (lifeCounter === 3) {man.innerHTML = "<img src ='assets/images/hangmanimg/leg.png'>";}
-
-
-		if (lifeCounter === 2) {
-			man.innerHTML = "<img src ='assets/images/hangmanimg/arms.png'>";
-			info.innerHTML = vgSystems.info[indy];
-	}
-		if (lifeCounter === 1) {
-			man.innerHTML = "<img src ='assets/images/hangmanimg/head.png'>";
-			pic.innerHTML = vgSystems.img[indy];
-
-		}
-
-
-		if (lifeCounter === 0) {man.innerHTML = "<img src ='assets/images/hangmanimg/end.png'>";}
     	if (lifeCounter === 0) {
-    		lossCounter++;
-    		losses.textContent = lossCounter;
+    	lossCounter++;
+    	losses.textContent = lossCounter;
 
-    		randWord = rand(vgSystems.name);
-    		indy = vgSystems.name.indexOf(randWord);
-    		dynamicWord = initialWordSet(randWord);
-    		usedLets = [];
-    		guessed.textContent = "";
-    		lifeCounter = 6;
-    		lives.textContent = lifeCounter;
-    		pic.innerHTML = '';
-    		info.innerHTML = "Hints: When 2 guesses remain, recieve a brief clue. When 1 guess remains, recieve an image"
-    		display(dynamicWord);
+		randWord = rand(vgSystems.name);
+		indy = vgSystems.name.indexOf(randWord);
+		dynamicWord = initialWordSet(randWord);
+		usedLets = [];
+		guessed.textContent = "";
+		lifeCounter = 6;
+		lives.textContent = lifeCounter;
+		display(dynamicWord);
+		pic.innerHTML = '<img>';
+ 		man.innerHTML = '<img>';
+   		info.innerHTML = "Hints: When 2 guesses remain, recieve a brief clue. When 1 guess remains, recieve an image"
+
+		
     	}
 
     }
-    display(dynamicWord); 
+    display(dynamicWord);
+    if (lifeCounter === 5) {man.innerHTML = "<img src ='assets/images/hangmanimg/init.png'>";}
+	if (lifeCounter === 4) {man.innerHTML = "<img src ='assets/images/hangmanimg/bod.png'>";}
+	if (lifeCounter === 3) {man.innerHTML = "<img src ='assets/images/hangmanimg/leg.png'>";}
+	if (lifeCounter === 2) {
+			man.innerHTML = "<img src ='assets/images/hangmanimg/arms.png'>";
+			info.innerHTML = vgSystems.info[indy];
+	}
+	if (lifeCounter === 1) {
+		man.innerHTML = "<img src ='assets/images/hangmanimg/head.png'>";
+		pic.innerHTML = vgSystems.img[indy];
+	}
+	if (lifeCounter === 0) {
+		// man.innerHTML = "<img src ='assets/images/hangmanimg/end.png'>";
+
+	}
+    
 
     //checks if word is completed, and generates a new word
     if (completeCheck()){
@@ -292,6 +295,13 @@ document.onkeyup = function(event) {
     	guessed.textContent = "";
     	lifeCounter = 6;
     	lives.textContent = lifeCounter;
+
+    	indy = vgSystems.name.indexOf(randWord);
+
+   		pic.innerHTML = '<img>';
+ 		man.innerHTML = '<img>';
+   		info.innerHTML = "Hints: When 2 guesses remain, recieve a brief clue. When 1 guess remains, recieve an image"
+
 
     	display(dynamicWord);
     }
