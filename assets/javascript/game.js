@@ -26,18 +26,86 @@ var vgSystems = {
 			"intellevision",
 			"zxspectrum",
 			"commodore",
-			"turbocd",
+			"turboduo",
 			"neogeo",
 			"gameboy",
 			"psp",
 			"gameboyadvance",
 			"pc"],
-	img: [],
-	info: []
+	img: ["<img src ='assets/images/consoleimg/snes.jpg'>",
+		"<img src ='assets/images/consoleimg/genesis.jpg'>",
+		"<img src ='assets/images/consoleimg/nes.jpg'>",
+		"<img src ='assets/images/consoleimg/gameboycolor.jpg'>",
+		"<img src ='assets/images/consoleimg/gamecube.jpg'>",
+		"<img src ='assets/images/consoleimg/wii.jpg'>",
+		"<img src ='assets/images/consoleimg/wiiu.jpg'>",
+		"<img src ='assets/images/consoleimg/switch.jpg'>",
+		"<img src ='assets/images/consoleimg/mastersystem.jpg'>",
+		"<img src ='assets/images/consoleimg/segacd.jpg'>",
+
+		"<img src ='assets/images/consoleimg/saturn.jpg'>",
+		"<img src ='assets/images/consoleimg/dreamcast.jpg'>",
+		"<img src ='assets/images/consoleimg/turbografx.jpg'>",
+		"<img src ='assets/images/consoleimg/pcengine.jpg'>",
+		"<img src ='assets/images/consoleimg/playstation.png'>",
+		"<img src ='assets/images/consoleimg/xbox.jpg'>",
+		"<img src ='assets/images/consoleimg/xboxone.jpg'>",
+		"<img src ='assets/images/consoleimg/atarijaguar.jpg'>",
+		"<img src ='assets/images/consoleimg/atari.jpg'>",
+		"<img src ='assets/images/consoleimg/philipscdi.jpg'>",
+
+		"<img src ='assets/images/consoleimg/colecovision.jpg'>",
+		"<img src ='assets/images/consoleimg/intellevision.jpg'>",
+		"<img src ='assets/images/consoleimg/zxspectrum.jpg'>",
+		"<img src ='assets/images/consoleimg/commodore.jpg'>",
+		"<img src ='assets/images/consoleimg/turboduo.png'>",
+		"<img src ='assets/images/consoleimg/neogeo.jpg'>",
+		"<img src ='assets/images/consoleimg/gameboy.jpg'>",
+		"<img src ='assets/images/consoleimg/psp.jpg'>",
+		"<img src ='assets/images/consoleimg/gameboyadvance.jpg'>",
+		"<img src ='assets/images/consoleimg/pc.jpg'>",
+		],
+	info: ["Super",
+			"Does what Nintendon't",
+			"1985 juggarnaught",
+			"pocket",
+			"has a handle",
+			"We game",
+			"tablet console",
+			"hybrid",
+			"what is before genesis",
+			"FMV",
+			"between jupiter and neptune",
+			"mvc2 machine",
+			"the other 16-bit console",
+			"JP hit",
+			"sony sticks it to em",
+			"microsofts babe",
+			"the one to rule them all",
+			"ataris last effort",
+			"2600",
+			"the one with bad zeldas",
+			"best arcade ports",
+			"colecos rival",
+			"big hit in the UK",
+			"como",
+			"Rondos system",
+			"arcade at home",
+			"tetris machine",
+			"hotshots machine",
+			"too much shovelware",
+			"psuedo console"]
 };
+
+
 
 //assigns random word from vgSystems array
 randWord = rand(vgSystems.name);
+console.log(randWord);
+
+//gets index of random word
+var indy = vgSystems.name.indexOf(randWord);
+console.log(indy);
 
 //grabs html div
 var consoleWord = document.getElementById("gameWord");
@@ -183,19 +251,33 @@ document.onkeyup = function(event) {
     	if (lifeCounter === 5) {man.innerHTML = "<img src ='assets/images/hangmanimg/init.png'>";}
 		if (lifeCounter === 4) {man.innerHTML = "<img src ='assets/images/hangmanimg/bod.png'>";}
 		if (lifeCounter === 3) {man.innerHTML = "<img src ='assets/images/hangmanimg/leg.png'>";}
-		if (lifeCounter === 2) {man.innerHTML = "<img src ='assets/images/hangmanimg/arms.png'>";}
-		if (lifeCounter === 1) {man.innerHTML = "<img src ='assets/images/hangmanimg/head.png'>";}
+
+
+		if (lifeCounter === 2) {
+			man.innerHTML = "<img src ='assets/images/hangmanimg/arms.png'>";
+			info.innerHTML = vgSystems.info[indy];
+	}
+		if (lifeCounter === 1) {
+			man.innerHTML = "<img src ='assets/images/hangmanimg/head.png'>";
+			pic.innerHTML = vgSystems.img[indy];
+
+		}
+
+
 		if (lifeCounter === 0) {man.innerHTML = "<img src ='assets/images/hangmanimg/end.png'>";}
     	if (lifeCounter === 0) {
     		lossCounter++;
     		losses.textContent = lossCounter;
 
     		randWord = rand(vgSystems.name);
+    		indy = vgSystems.name.indexOf(randWord);
     		dynamicWord = initialWordSet(randWord);
     		usedLets = [];
     		guessed.textContent = "";
     		lifeCounter = 6;
     		lives.textContent = lifeCounter;
+    		pic.innerHTML = '';
+    		info.innerHTML = "Hints: When 2 guesses remain, recieve a brief clue. When 1 guess remains, recieve an image"
     		display(dynamicWord);
     	}
 
@@ -210,6 +292,7 @@ document.onkeyup = function(event) {
     	guessed.textContent = "";
     	lifeCounter = 6;
     	lives.textContent = lifeCounter;
+
     	display(dynamicWord);
     }
 };
