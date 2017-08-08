@@ -1,47 +1,52 @@
 //variables
 /////////////////////////////////////////////////////////////////////////////////
 //Array of video game systems
-var vgSystems = [
-	"snes",
-	"genesis",
-	"nes",
-	"gameboycolor",
-	"gamecube",
-	"wii",
-	"wiiu",
-	"switch",
-	"mastersystem",
-	"segacd",
-	"saturn",
-	"dreamcast",
-	"turbografx",
-	"pcengine",
-	"playstation",
-	"xbox",
-	"xboxone",
-	"atarijaguar",
-	"atari",
-	"panasoniccdi",
-	"colecovision",
-	"intellevision",
-	"zxspectrum",
-	"commodore",
-	"turbocd",
-	"neogeo",
-	"gameboy",
-	"psp",
-	"gameboyadvance",
-	"pc"
-];
+var vgSystems = {
+	name: ["snes",
+			"genesis",
+			"nes",
+			"gameboycolor",
+			"gamecube",
+			"wii",
+			"wiiu",
+			"switch",
+			"mastersystem",
+			"segacd",
+			"saturn",
+			"dreamcast",
+			"turbografx",
+			"pcengine",
+			"playstation",
+			"xbox",
+			"xboxone",
+			"atarijaguar",
+			"atari",
+			"philipscdi",
+			"colecovision",
+			"intellevision",
+			"zxspectrum",
+			"commodore",
+			"turbocd",
+			"neogeo",
+			"gameboy",
+			"psp",
+			"gameboyadvance",
+			"pc"],
+	img: [],
+	info: []
+};
 
 //assigns random word from vgSystems array
-randWord = rand(vgSystems);
+randWord = rand(vgSystems.name);
 
 //grabs html div
 var consoleWord = document.getElementById("gameWord");
 
 //grabs html span
 var guessed = document.getElementById("guessedLets");
+
+//grabs hangman image div
+var man = document.getElementById("man");
 
 //stores incorrect letters
 var usedLets = [];
@@ -107,7 +112,7 @@ function wordSetter(currentWord, letter) {
 
 //randomly selects a videogame console from vgSystems array
 function rand(arry) {
-	var gen = vgSystems[Math.floor(Math.random() * vgSystems.length)];
+	var gen = vgSystems.name[Math.floor(Math.random() * vgSystems.name.length)];
 	return gen;
 }
 
@@ -164,7 +169,6 @@ document.onkeyup = function(event) {
     	return false;
     }
 
-
     //checks if the letter is in the word
     var boolCheck = checker(randWord, userInput);
 
@@ -176,11 +180,17 @@ document.onkeyup = function(event) {
     	storedInputs(userInput);
     	lifeCounter--;
     	lives.textContent = lifeCounter;
+    	if (lifeCounter === 5) {man.innerHTML = "<img src ='assets/images/hangmanimg/init.png'>";}
+		if (lifeCounter === 4) {man.innerHTML = "<img src ='assets/images/hangmanimg/bod.png'>";}
+		if (lifeCounter === 3) {man.innerHTML = "<img src ='assets/images/hangmanimg/leg.png'>";}
+		if (lifeCounter === 2) {man.innerHTML = "<img src ='assets/images/hangmanimg/arms.png'>";}
+		if (lifeCounter === 1) {man.innerHTML = "<img src ='assets/images/hangmanimg/head.png'>";}
+		if (lifeCounter === 0) {man.innerHTML = "<img src ='assets/images/hangmanimg/end.png'>";}
     	if (lifeCounter === 0) {
     		lossCounter++;
     		losses.textContent = lossCounter;
 
-    		randWord = rand(vgSystems);
+    		randWord = rand(vgSystems.name);
     		dynamicWord = initialWordSet(randWord);
     		usedLets = [];
     		guessed.textContent = "";
@@ -190,11 +200,11 @@ document.onkeyup = function(event) {
     	}
 
     }
-    display(dynamicWord);
+    display(dynamicWord); 
 
     //checks if word is completed, and generates a new word
     if (completeCheck()){
-    	randWord = rand(vgSystems);
+    	randWord = rand(vgSystems.name);
     	dynamicWord = initialWordSet(randWord);
     	usedLets = [];
     	guessed.textContent = "";

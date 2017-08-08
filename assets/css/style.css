@@ -35,3 +35,7 @@ h1 ,h2, h4 {
 	padding: 40px;
 	min-width: 50%;
 }
+
+#man img {
+	size: 50%;
+}
