@@ -1,107 +1,106 @@
-//variables
-/////////////////////////////////////////////////////////////////////////////////
-//Array of video game systems
+//Object with 3 properties: name, img, and info. 
+//Each property has a value with an array 30 long
 var vgSystems = {
-	name: ["snes",
-			"genesis",
-			"nes",
-			"gameboycolor",
-			"gamecube",
-			"wii",
-			"wiiu",
-			"switch",
-			"mastersystem",
-			"segacd",
-			"saturn",
-			"dreamcast",
-			"turbografx",
-			"pcengine",
-			"playstation",
-			"xbox",
-			"xboxone",
-			"atarijaguar",
-			"atari",
-			"philipscdi",
-			"colecovision",
-			"intellevision",
-			"zxspectrum",
-			"commodore",
-			"turboduo",
-			"neogeo",
-			"gameboy",
-			"psp",
-			"gameboyadvance",
-			"pc"],
-	img: ["<img src ='assets/images/consoleimg/snes.jpg'>",
-		"<img src ='assets/images/consoleimg/genesis.jpg'>",
-		"<img src ='assets/images/consoleimg/nes.jpg'>",
-		"<img src ='assets/images/consoleimg/gameboycolor.jpg'>",
-		"<img src ='assets/images/consoleimg/gamecube.jpg'>",
-		"<img src ='assets/images/consoleimg/wii.jpg'>",
-		"<img src ='assets/images/consoleimg/wiiu.jpg'>",
-		"<img src ='assets/images/consoleimg/switch.jpg'>",
-		"<img src ='assets/images/consoleimg/mastersystem.jpg'>",
-		"<img src ='assets/images/consoleimg/segacd.jpg'>",
+name: ["snes",
+		"genesis",
+		"nes",
+		"gameboycolor",
+		"gamecube",
+		"wii",
+		"wiiu",
+		"switch",
+		"mastersystem",
+		"segacd",
+		"saturn",
+		"dreamcast",
+		"turbografx",
+		"pcengine",
+		"playstation",
+		"xbox",
+		"xboxone",
+		"atarijaguar",
+		"atari",
+		"philipscdi",
+		"colecovision",
+		"intellivision",
+		"zxspectrum",
+		"commodore",
+		"turboduo",
+		"neogeo",
+		"gameboy",
+		"psp",
+		"gameboyadvance",
+		"pc"],
+img: ["<img src ='assets/images/consoleimg/snes.jpg'>",
+	"<img src ='assets/images/consoleimg/genesis.jpg'>",
+	"<img src ='assets/images/consoleimg/nes.jpg'>",
+	"<img src ='assets/images/consoleimg/gameboycolor.jpg'>",
+	"<img src ='assets/images/consoleimg/gamecube.jpg'>",
+	"<img src ='assets/images/consoleimg/wii.jpg'>",
+	"<img src ='assets/images/consoleimg/wiiu.jpg'>",
+	"<img src ='assets/images/consoleimg/switch.jpg'>",
+	"<img src ='assets/images/consoleimg/mastersystem.jpg'>",
+	"<img src ='assets/images/consoleimg/segacd.jpg'>",
 
-		"<img src ='assets/images/consoleimg/saturn.jpg'>",
-		"<img src ='assets/images/consoleimg/dreamcast.jpg'>",
-		"<img src ='assets/images/consoleimg/turbografx.jpg'>",
-		"<img src ='assets/images/consoleimg/pcengine.jpg'>",
-		"<img src ='assets/images/consoleimg/playstation.png'>",
-		"<img src ='assets/images/consoleimg/xbox.jpg'>",
-		"<img src ='assets/images/consoleimg/xboxone.jpg'>",
-		"<img src ='assets/images/consoleimg/atarijaguar.jpg'>",
-		"<img src ='assets/images/consoleimg/atari.jpg'>",
-		"<img src ='assets/images/consoleimg/philipscdi.jpg'>",
+	"<img src ='assets/images/consoleimg/saturn.jpg'>",
+	"<img src ='assets/images/consoleimg/dreamcast.jpg'>",
+	"<img src ='assets/images/consoleimg/turbografx.jpg'>",
+	"<img src ='assets/images/consoleimg/pcengine.jpg'>",
+	"<img src ='assets/images/consoleimg/playstation.png'>",
+	"<img src ='assets/images/consoleimg/xbox.jpg'>",
+	"<img src ='assets/images/consoleimg/xboxone.jpg'>",
+	"<img src ='assets/images/consoleimg/atarijaguar.jpg'>",
+	"<img src ='assets/images/consoleimg/atari.jpg'>",
+	"<img src ='assets/images/consoleimg/philipscdi.jpg'>",
 
-		"<img src ='assets/images/consoleimg/colecovision.jpg'>",
-		"<img src ='assets/images/consoleimg/intellevision.jpg'>",
-		"<img src ='assets/images/consoleimg/zxspectrum.jpg'>",
-		"<img src ='assets/images/consoleimg/commodore.jpg'>",
-		"<img src ='assets/images/consoleimg/turboduo.png'>",
-		"<img src ='assets/images/consoleimg/neogeo.jpg'>",
-		"<img src ='assets/images/consoleimg/gameboy.jpg'>",
-		"<img src ='assets/images/consoleimg/psp.jpg'>",
-		"<img src ='assets/images/consoleimg/gameboyadvance.jpg'>",
-		"<img src ='assets/images/consoleimg/pc.jpg'>",
-		],
-	info: ["Super",
-			"Does what Nintendon't",
-			"1985 juggarnaught",
-			"pocket",
-			"has a handle",
-			"We game",
-			"tablet console",
-			"hybrid",
-			"what is before genesis",
-			"FMV",
-			"between jupiter and neptune",
-			"mvc2 machine",
-			"the other 16-bit console",
-			"JP hit",
-			"sony sticks it to em",
-			"microsofts babe",
-			"the one to rule them all",
-			"ataris last effort",
-			"2600",
-			"the one with bad zeldas",
-			"best arcade ports",
-			"colecos rival",
-			"big hit in the UK",
-			"como",
-			"Rondos system",
-			"arcade at home",
-			"tetris machine",
-			"hotshots machine",
-			"too much shovelware",
-			"psuedo console"]
+	"<img src ='assets/images/consoleimg/colecovision.jpg'>",
+	"<img src ='assets/images/consoleimg/intellivision.jpg'>",
+	"<img src ='assets/images/consoleimg/zxspectrum.jpg'>",
+	"<img src ='assets/images/consoleimg/commodore.jpg'>",
+	"<img src ='assets/images/consoleimg/turboduo.png'>",
+	"<img src ='assets/images/consoleimg/neogeo.jpg'>",
+	"<img src ='assets/images/consoleimg/gameboy.jpg'>",
+	"<img src ='assets/images/consoleimg/psp.jpg'>",
+	"<img src ='assets/images/consoleimg/gameboyadvance.jpg'>",
+	"<img src ='assets/images/consoleimg/pc.jpg'>",
+	],
+info: ["arguable best library of games",
+		"Does what Nintendon't",
+		"Ended the 80's videogame crash",
+		"deluxe pocket console",
+		"has a featured handle",
+		"got moms and grandpas to game",
+		"tablet controller console",
+		"hybrid",
+		"what is before genesis",
+		"Full Motion Video",
+		"Between jupiter and pluto",
+		"fighting game machine",
+		"that other 16-bit console",
+		"was bigger than Nintendo or Sega in JP",
+		"product of a Nintendo back stabbing",
+		"microsoft's babe",
+		"the one to rule them all",
+		"atari's last effort",
+		"2600",
+		"the one with bad zeldas",
+		"had best arcade ports",
+		"colecos rival",
+		"big hit in the UK",
+		"was the first real gaming pc",
+		"not trio, but turbo",
+		"arcade at home",
+		"greenscale",
+		"hotshots golf open tee was a key title",
+		"got wayyy better with a backlight",
+		"not really a console"]
 };
 
-
+//variables
+/////////////////////////////////////////////////////////////////////////////////
 
 //assigns random word from vgSystems array
-randWord = rand(vgSystems.name);
-console.log(randWord);
+var randWord = rand(vgSystems.name);
 
 //gets index of random word
 var indy = vgSystems.name.indexOf(randWord);
@@ -148,8 +147,6 @@ lives.textContent = lifeCounter;
 
 //displays word
 function display(word) {
-
-	//update word area
 	consoleWord.textContent = word;	
 }
 
@@ -186,7 +183,7 @@ function rand(arry) {
 }
 
 //checks if the input is in the word
-function checker(currentWord, letter){
+function wordChecker(currentWord, letter){
 	for(var i = 0; i < currentWord.length; i++) {
 		var place = currentWord.charAt([i]);
 		if (place === letter) {
@@ -221,6 +218,11 @@ function completeCheck() {
 		return false;
 	}
 }
+
+//checks if letter is alphabetical
+var letterChecker = function(key){
+	return /^[A-Z]$/i.test(key);
+}
 ////////////////////////////////////////////////////////////////////
 //end functions
 
@@ -238,8 +240,13 @@ document.onkeyup = function(event) {
     	return false;
     }
 
+    //checks if input is a letter
+    if (!letterChecker(userInput)) {
+		return false;
+	} 
+
     //checks if the letter is in the word
-    var boolCheck = checker(randWord, userInput);
+    var boolCheck = wordChecker(randWord, userInput);
 
     if (boolCheck === true) { 
 
@@ -264,12 +271,12 @@ document.onkeyup = function(event) {
 		pic.innerHTML = '<img>';
  		man.innerHTML = '<img>';
    		info.innerHTML = "Hints: When 2 guesses remain, recieve a brief clue. When 1 guess remains, recieve an image"
-
-		
     	}
 
     }
     display(dynamicWord);
+
+    // updates hang man pics and delivers hints
     if (lifeCounter === 5) {man.innerHTML = "<img src ='assets/images/hangmanimg/init.png'>";}
 	if (lifeCounter === 4) {man.innerHTML = "<img src ='assets/images/hangmanimg/bod.png'>";}
 	if (lifeCounter === 3) {man.innerHTML = "<img src ='assets/images/hangmanimg/leg.png'>";}
@@ -286,8 +293,7 @@ document.onkeyup = function(event) {
 
 	}
     
-
-    //checks if word is completed, and generates a new word
+    //checks if word is completed, and  resets game
     if (completeCheck()){
     	randWord = rand(vgSystems.name);
     	dynamicWord = initialWordSet(randWord);
@@ -295,14 +301,10 @@ document.onkeyup = function(event) {
     	guessed.textContent = "";
     	lifeCounter = 6;
     	lives.textContent = lifeCounter;
-
     	indy = vgSystems.name.indexOf(randWord);
-
    		pic.innerHTML = '<img>';
  		man.innerHTML = '<img>';
    		info.innerHTML = "Hints: When 2 guesses remain, recieve a brief clue. When 1 guess remains, recieve an image"
-
-
     	display(dynamicWord);
     }
 };
